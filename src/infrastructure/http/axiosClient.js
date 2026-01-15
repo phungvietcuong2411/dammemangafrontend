@@ -8,8 +8,8 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const user = JSON.parse(localStorage.getItem("user")); // lấy user object
-  const token = user?.token || localStorage.getItem("token"); // ưu tiên user.token
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = user?.token || localStorage.getItem("token"); 
 
   if (token) {
     config.headers["Authorization"] = `Bearer ${token}`;
